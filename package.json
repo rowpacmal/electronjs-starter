@@ -12,8 +12,9 @@
   "type": "module",
   "main": "dist-electron/main.js",
   "scripts": {
+    "dev": "npm-run-all -p dev:*",
     "dev:react": "vite",
-    "dev:electron": "cross-env NODE_ENV=development electron .",
+    "dev:electron": "npm run transpile:electron && cross-env NODE_ENV=development electron .",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
