@@ -1,16 +1,26 @@
 {
   "name": "electronjs-starter",
+  "productName": "Your App Name",
+  "description": "Your App Description",
+  "author": {
+    "name": "Your Name",
+    "email": "your_name@email.me"
+  },
+  "license": "MIT",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "main": "dist-electron/main",
+  "main": "dist-electron/main.js",
   "scripts": {
     "dev:react": "vite",
     "dev:electron": "electron .",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "transpile:electron": "tsc -p src/electron/tsconfig.json"
+    "transpile:electron": "tsc -p src/electron/tsconfig.json",
+    "dist:mac": "npm run transpile:electron && npm run build && electron-builder --mac --arm64",
+    "dist:win": "npm run transpile:electron && npm run build && electron-builder --win --x64",
+    "dist:linux": "npm run transpile:electron && npm run build && electron-builder --linux --x64"
   },
   "dependencies": {
     "react": "^19.1.0",
